@@ -21,6 +21,8 @@ plt.rcParams['font.size'] = 14
 plt.rcParams['axes.titlesize'] = 14
 plt.rcParams['axes.spines.right'] = False
 plt.rcParams['axes.spines.top'] = False
+plt.rcParams['mathtext.fontset'] = 'stix'
+plt.rcParams['mathtext.rm'] = 'Times New Roman'
 
 def _duffing_equation(y, t):
     """Non-autonomous system"""
@@ -45,8 +47,8 @@ def _plot_prediction(ax, t, y_true, y_pred, title, show_legend=False):
     if show_legend:
         ax.legend()
     ax.set_title(f"{title} (R2: {r2_score(y_true, y_pred):.3f})")
-    ax.set_xlabel("t (s)")
-    ax.set_ylabel("y(t)")
+    ax.set_xlabel("$t$ (s)")
+    ax.set_ylabel("$y(t)$")
     ax.grid(True, alpha=0.3)
 
 def plot_fitting_performance():
@@ -184,8 +186,8 @@ def plot_phase_portraits():
         linewidth=0.5,
         arrowsize=0.5,
     )
-    plt.xlabel("y(t)")
-    plt.ylabel("dy/dt(t)")
+    plt.xlabel("$y(t)$")
+    plt.ylabel("$\\mathrm{d}y/\\mathrm{d}t(t)$")
     offset = 0.02
     plt.xlim(y_min - offset, y_max + offset)
     plt.ylim(dot_y_min - offset, dot_y_max + offset)
